@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith Dental Clinic | Gentle Care for Your Smile</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        teal: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .accordion-content {
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .accordion-content.active { opacity: 1; }
+        
+        /* Loading Spinner */
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #0d9488;
+            width: 24px;
+            height: 24px;
+            -webkit-animation: spin 1s linear infinite; /* Safari */
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-600 antialiased bg-slate-50">
+
+    <!-- Navbar -->
+    <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600 group-hover:bg-teal-500 group-hover:text-white transition-colors duration-300">
+                    <i class="fa-solid fa-tooth text-xl"></i>
+                </div>
+                <span class="text-xl font-bold text-slate-800 tracking-tight">Zenith<span class="text-teal-500">Dental</span></span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-slate-600 hover:text-teal-600 font-medium transition-colors">About Us</a>
+                <a href="#services" class="text-slate-600 hover:text-teal-600 font-medium transition-colors">Services</a>
+                <a href="#testimonials" class="text-slate-600 hover:text-teal-600 font-medium transition-colors">Stories</a>
+                <a href="#faq" class="text-slate-600 hover:text-teal-600 font-medium transition-colors">FAQ</a>
+                <button onclick="openModal()" class="bg-teal-500 hover:bg-teal-600 text-white px-6 py-2.5 rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg shadow-teal-500/30">
+                    Book Appointment
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-600 text-2xl hover:text-teal-600 transition-colors">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 p-4 absolute w-full shadow-lg origin-top animate-fade-in-down z-40">
+            <div class="flex flex-col gap-4">
+                <a href="#about" class="text-slate-600 hover:text-teal-600 font-medium p-2 hover:bg-slate-50 rounded-lg">About Us</a>
+                <a href="#services" class="text-slate-600 hover:text-teal-600 font-medium p-2 hover:bg-slate-50 rounded-lg">Services</a>
+                <a href="#testimonials" class="text-slate-600 hover:text-teal-600 font-medium p-2 hover:bg-slate-50 rounded-lg">Stories</a>
+                <a href="#faq" class="text-slate-600 hover:text-teal-600 font-medium p-2 hover:bg-slate-50 rounded-lg">FAQ</a>
+                <button onclick="openModal()" class="bg-teal-500 text-white px-6 py-3 rounded-full font-semibold w-full shadow-md">Book Appointment</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-12 pb-32 md:pb-48 overflow-hidden">
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal-50 via-white to-white"></div>
+        
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                
+                <!-- Hero Text -->
+                <div class="w-full md:w-1/2 space-y-6 animate-fade-in-up">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 text-teal-600 text-sm font-semibold border border-teal-100 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                        Accepting New Patients
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1]">
+                        Gentle Care for <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-teal-700">Your Best Smile</span>
+                    </h1>
+                    <p class="text-lg text-slate-500 leading-relaxed max-w-lg">
+                        Experience anxiety-free dentistry in a modern, soothing environment. We combine advanced technology with a compassionate touch to keep you smiling.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <button onclick="openModal()" class="bg-teal-500 hover:bg-teal-600 text-white px-8 py-3.5 rounded-full font-bold shadow-xl shadow-teal-500/20 transition-all hover:-translate-y-1">
+                            Book Your Visit
+                        </button>
+                        <a href="#services" class="flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border border-slate-200 text-slate-700 hover:bg-white hover:border-slate-300 hover:shadow-md transition-all font-semibold bg-white/50">
+                            <i class="fa-regular fa-circle-play text-teal-500"></i>
+                            View Procedures
+                        </a>
+                    </div>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="pt-8 flex items-center gap-6">
+                        <div class="flex -space-x-3">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Patient">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Patient">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" class="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Patient">
+                            <div class="w-10 h-10 rounded-full border-2 border-white bg-teal-50 flex items-center justify-center text-teal-600 text-xs font-bold">+2k</div>
+                        </div>
+                        <div class="text-sm">
+                            <div class="flex text-yellow-400 text-xs mb-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="text-slate-500 font-medium">Trusted by families</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="w-full md:w-1/2 relative">
+                    <div class="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-teal-900/10 group">
+                        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smiling Dentist" class="w-full h-[550px] object-cover object-top transform group-hover:scale-105 transition-transform duration-700">
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur-md px-5 py-3 rounded-2xl shadow-lg flex items-center gap-3 border border-white/50">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                                <i class="fa-solid fa-shield-heart"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Satisfaction</p>
+                                <p class="text-slate-900 font-bold">100% Guaranteed</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Decorative blobs -->
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-teal-200 rounded-full blur-3xl opacity-60 -z-10 animate-pulse"></div>
+                    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-200 rounded-full blur-3xl opacity-60 -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Info Cards Section -->
+    <section class="relative z-20 -mt-20 md:-mt-24 pb-20 px-6">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Card 1: Hours -->
+                <div class="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-slate-50">
+                    <div class="w-14 h-14 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Opening Hours</h3>
+                    <ul class="space-y-3 text-slate-500 text-sm mt-4">
+                        <li class="flex justify-between border-b border-slate-50 pb-2"><span>Mon - Fri</span> <span class="font-bold text-slate-700">8:00 AM - 6:00 PM</span></li>
+                        <li class="flex justify-between border-b border-slate-50 pb-2"><span>Saturday</span> <span class="font-bold text-slate-700">9:00 AM - 2:00 PM</span></li>
+                        <li class="flex justify-between pt-1"><span>Sunday</span> <span class="text-red-400 font-bold bg-red-50 px-2 rounded-md">Closed</span></li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Location -->
+                <div class="bg-teal-500 p-8 rounded-3xl shadow-xl shadow-teal-500/20 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-white relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-10 -mt-10 group-hover:scale-110 transition-transform duration-500"></div>
+                    <div class="w-14 h-14 bg-white/20 text-white rounded-2xl flex items-center justify-center text-2xl mb-4 backdrop-blur-sm">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Visit Clinic</h3>
+                    <p class="text-teal-50 text-sm mb-6 leading-relaxed mt-4">
+                        123 Wellness Boulevard,<br>
+                        Suite 400, Medical District,<br>
+                        San Francisco, CA 94110
+                    </p>
+                    <a href="#footer-map" class="inline-flex items-center gap-2 text-sm font-bold bg-white/10 px-4 py-2 rounded-lg hover:bg-white hover:text-teal-600 transition-all">
+                        Get Directions <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3: Emergency -->
+                <div class="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-slate-50">
+                    <div class="w-14 h-14 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-phone-volume"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Emergency?</h3>
+                    <p class="text-slate-500 text-sm mb-4 mt-4 leading-relaxed">
+                        Dental emergencies happen. We keep daily slots open for urgent care because pain can't wait.
+                    </p>
+                    <a href="tel:+15551234567" class="text-2xl font-bold text-slate-800 hover:text-teal-500 transition-colors inline-block mt-2">
+                        (555) 123-4567
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section (New) -->
+    <section id="about" class="py-16 bg-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Image Grid -->
+                <div class="w-full lg:w-1/2 relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="rounded-2xl shadow-lg w-full h-64 object-cover transform translate-y-8" alt="Clinic Equipment">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="rounded-2xl shadow-lg w-full h-64 object-cover" alt="Happy Patient">
+                    </div>
+                    <!-- Experience Badge -->
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-teal-600 text-white p-6 rounded-full shadow-xl border-4 border-white text-center w-40 h-40 flex flex-col justify-center items-center z-10">
+                        <span class="text-4xl font-bold">15+</span>
+                        <span class="text-xs uppercase font-semibold tracking-wider">Years Exp.</span>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="w-full lg:w-1/2">
+                    <span class="text-teal-500 font-bold tracking-wider uppercase text-sm">About Zenith Dental</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-6">We're Redefining the Dental Experience</h2>
+                    <p class="text-slate-500 leading-relaxed mb-6">
+                        At Zenith Dental, we believe a visit to the dentist should be as comfortable as visiting a friend. Founded in 2010 by Dr. Sarah Mitchell, our clinic focuses on minimally invasive dentistry and preventive care.
+                    </p>
+                    <p class="text-slate-500 leading-relaxed mb-8">
+                        Our state-of-the-art facility is equipped with 3D imaging, noiseless drills, and entertainment screens in every ceiling to ensure you stay relaxed while we perfect your smile.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-teal-500 text-xl"></i>
+                            <span class="font-medium text-slate-700">Certified Specialists</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-teal-500 text-xl"></i>
+                            <span class="font-medium text-slate-700">Latest Technology</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-teal-500 text-xl"></i>
+                            <span class="font-medium text-slate-700">Affordable Pricing</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-teal-500 text-xl"></i>
+                            <span class="font-medium text-slate-700">Personalized Care</span>
+                        </div>
+                    </div>
+
+                    <a href="#services" class="text-teal-600 font-bold hover:text-teal-700 hover:underline">Learn more about our team &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Enhanced) -->
+    <section id="services" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-teal-500 font-bold tracking-wider uppercase text-sm">Our Services</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Comprehensive Dental Solutions</h2>
+                <p class="text-slate-500 mt-4">From routine checkups to complex cosmetic procedures, we have you covered.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100 hover:border-teal-100">
+                    <div class="w-16 h-16 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-teal-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Cosmetic Whitening</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Professional whitening treatments that brighten your smile by up to 8 shades in a single hour visit.</p>
+                    <a href="#" class="text-teal-500 font-semibold text-sm group-hover:text-teal-700">Learn more &rarr;</a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100 hover:border-teal-100">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-tooth"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Dental Implants</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Permanent, natural-looking replacements for missing teeth that restore full function and confidence.</p>
+                    <a href="#" class="text-blue-500 font-semibold text-sm group-hover:text-blue-700">Learn more &rarr;</a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100 hover:border-teal-100">
+                    <div class="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-purple-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Preventive Exams</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Detailed digital X-rays and thorough cleanings to catch issues early and keep gums healthy.</p>
+                    <a href="#" class="text-purple-500 font-semibold text-sm group-hover:text-purple-700">Learn more &rarr;</a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100 hover:border-teal-100">
+                    <div class="w-16 h-16 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-orange-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-child-reaching"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Pediatric Dentistry</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Fun, gentle visits for kids with a "No Cavity Club" rewards program to build good habits.</p>
+                    <a href="#" class="text-orange-500 font-semibold text-sm group-hover:text-orange-700">Learn more &rarr;</a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button onclick="openModal()" class="border-2 border-slate-200 text-slate-600 hover:border-teal-500 hover:text-teal-600 px-8 py-3 rounded-full font-semibold transition-all">View Full Price List</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section (New) -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-teal-500 font-bold tracking-wider uppercase text-sm">Testimonials</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2">What Our Patients Say</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-slate-50 p-8 rounded-3xl relative">
+                    <div class="text-teal-500 text-4xl absolute top-6 right-8 opacity-20"><i class="fa-solid fa-quote-right"></i></div>
+                    <div class="flex items-center gap-1 text-yellow-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-6">"I used to be terrified of the dentist, but Dr. Mitchell changed that. The staff is incredibly patient and the office feels like a spa. I actually look forward to my cleaning!"</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/women/12.jpg" class="w-12 h-12 rounded-full" alt="User">
+                        <div>
+                            <h4 class="font-bold text-slate-900">Emily R.</h4>
+                            <p class="text-xs text-slate-500">Patient since 2018</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-teal-600 p-8 rounded-3xl relative text-white transform md:-translate-y-4 shadow-xl">
+                    <div class="text-teal-300 text-4xl absolute top-6 right-8 opacity-20"><i class="fa-solid fa-quote-right"></i></div>
+                    <div class="flex items-center gap-1 text-yellow-300 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-teal-50 italic mb-6">"The emergency service here is a lifesaver. I chipped a tooth on a Saturday morning and they fixed it within 2 hours. Professional, fast, and painless."</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full border-2 border-teal-400" alt="User">
+                        <div>
+                            <h4 class="font-bold text-white">Michael T.</h4>
+                            <p class="text-xs text-teal-200">Emergency Patient</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-slate-50 p-8 rounded-3xl relative">
+                    <div class="text-teal-500 text-4xl absolute top-6 right-8 opacity-20"><i class="fa-solid fa-quote-right"></i></div>
+                    <div class="flex items-center gap-1 text-yellow-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 italic mb-6">"Brought my two kids here for their first checkup. The pediatric team was amazing at keeping them calm. They even got toys afterwards!"</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-12 h-12 rounded-full" alt="User">
+                        <div>
+                            <h4 class="font-bold text-slate-900">Sarah J.</h4>
+                            <p class="text-xs text-slate-500">Mother of two</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-slate-50 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Frequently Asked Questions</h2>
+                <p class="text-slate-500 mt-4">Common questions about our practice</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none group">
+                        <span class="font-bold text-slate-800 text-lg group-hover:text-teal-600 transition-colors">Do you accept insurance?</span>
+                        <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-teal-50 transition-colors">
+                            <i class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content bg-slate-50">
+                        <div class="px-6 py-4 text-slate-600 leading-relaxed border-t border-slate-100">
+                            Yes, we accept most major dental insurance plans including Delta Dental, Cigna, MetLife, and Aetna. We also offer flexible financing options through CareCredit for treatments not fully covered by insurance.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none group">
+                        <span class="font-bold text-slate-800 text-lg group-hover:text-teal-600 transition-colors">Are you accepting new patients?</span>
+                        <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-teal-50 transition-colors">
+                            <i class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content bg-slate-50">
+                        <div class="px-6 py-4 text-slate-600 leading-relaxed border-t border-slate-100">
+                            Absolutely! We are always happy to welcome new members to the Zenith Dental family. New patient appointments typically include a comprehensive exam, X-rays, and a consultation with the doctor.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                    <button class="accordion-btn w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none group">
+                        <span class="font-bold text-slate-800 text-lg group-hover:text-teal-600 transition-colors">What if I have dental anxiety?</span>
+                        <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-teal-50 transition-colors">
+                            <i class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content bg-slate-50">
+                        <div class="px-6 py-4 text-slate-600 leading-relaxed border-t border-slate-100">
+                            We specialize in treating anxious patients. Our clinic is designed to be calming, and we offer various sedation options including nitrous oxide and oral sedation to ensure your comfort. Just let us know when booking!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer-map" class="bg-teal-900 text-white pt-20 pb-10 rounded-t-[3rem] mt-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
+                
+                <!-- Brand Info -->
+                <div class="space-y-8">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="w-8 h-8 bg-teal-800 rounded-lg flex items-center justify-center text-teal-400">
+                                <i class="fa-solid fa-tooth"></i>
+                            </div>
+                            <span class="text-xl font-bold tracking-tight">Zenith<span class="text-teal-400">Dental</span></span>
+                        </div>
+                        <p class="text-teal-100 max-w-sm leading-relaxed text-sm">
+                            Providing top-tier dental care with a focus on patient comfort and long-term oral health. Your smile is our priority.
+                        </p>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-teal-800 flex items-center justify-center hover:bg-teal-400 hover:text-teal-900 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-teal-800 flex items-center justify-center hover:bg-teal-400 hover:text-teal-900 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-teal-800 flex items-center justify-center hover:bg-teal-400 hover:text-teal-900 transition-all"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="space-y-4">
+                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-teal-100">
+                        <li><a href="#about" class="hover:text-white hover:underline transition-all">About Our Clinic</a></li>
+                        <li><a href="#services" class="hover:text-white hover:underline transition-all">Treatments</a></li>
+                        <li><a href="#faq" class="hover:text-white hover:underline transition-all">Insurance Info</a></li>
+                        <li><a href="#" class="hover:text-white hover:underline transition-all">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Map -->
+                <div class="space-y-4">
+                    <h4 class="font-bold text-lg mb-2">Contact Us</h4>
+                     <div class="flex items-start gap-4 text-teal-100">
+                        <i class="fa-solid fa-location-dot mt-1 text-teal-400"></i>
+                        <span>123 Wellness Boulevard, Suite 400<br>San Francisco, CA 94110</span>
+                    </div>
+                    <div class="flex items-center gap-4 text-teal-100">
+                        <i class="fa-solid fa-envelope text-teal-400"></i>
+                        <span>hello@zenithdental.com</span>
+                    </div>
+                    
+                    <!-- Map Preview -->
+                    <div class="h-32 w-full rounded-xl overflow-hidden shadow-lg border border-teal-700 mt-4 relative group cursor-pointer">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0636750098484!2d-122.4194!3d37.7749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sTwitter+HQ!5e0!3m2!1sen!2sus!4v1530664878419" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; filter: grayscale(1) invert(1) contrast(0.8);" 
+                            allowfullscreen="" 
+                            loading="lazy"
+                            class="group-hover:opacity-80 transition-opacity">
+                        </iframe>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20">
+                            <span class="bg-white text-teal-900 px-3 py-1 rounded text-xs font-bold shadow">Open Maps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-teal-800 pt-8 text-center text-teal-400 text-sm">
+                &copy; 2024 Zenith Dental Clinic. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Functional Appointment Modal -->
+    <div id="appointment-modal" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Background overlay -->
+        <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-slate-100">
+                    
+                    <!-- Close Button -->
+                    <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+
+                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-teal-100 sm:mx-0 sm:h-10 sm:w-10">
+                                <i class="fa-regular fa-calendar-check text-teal-600"></i>
+                            </div>
+                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
+                                <h3 class="text-xl font-bold leading-6 text-slate-900" id="modal-title">Book Your Visit</h3>
+                                <p class="text-sm text-slate-500 mt-2">Fill out the form below and we will contact you within 2 hours to confirm your time.</p>
+                                
+                                <form id="booking-form" class="mt-6 space-y-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Full Name</label>
+                                        <input type="text" required placeholder="John Doe" class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all placeholder-slate-300">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Email</label>
+                                        <input type="email" required placeholder="john@example.com" class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all placeholder-slate-300">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Phone</label>
+                                        <input type="tel" required placeholder="(555) 000-0000" class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition-all placeholder-slate-300">
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Service Type</label>
+                                            <select class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none bg-white text-slate-600">
+                                                <option>General Checkup</option>
+                                                <option>Cleaning</option>
+                                                <option>Emergency</option>
+                                                <option>Whitening</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Preferred Time</label>
+                                            <select class="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none bg-white text-slate-600">
+                                                <option>Morning</option>
+                                                <option>Afternoon</option>
+                                                <option>Evening</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Form Actions -->
+                                    <div class="pt-4 flex flex-col sm:flex-row gap-3">
+                                        <button type="submit" id="submit-btn" class="w-full inline-flex justify-center items-center rounded-lg bg-teal-600 px-3 py-3 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 sm:w-auto sm:flex-1 outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-600 transition-all">
+                                            <span>Confirm Booking</span>
+                                        </button>
+                                        <button type="button" onclick="closeModal()" class="w-full inline-flex justify-center rounded-lg bg-white px-3 py-3 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 hover:bg-slate-50 sm:mt-0 sm:w-auto sm:flex-1 transition-all">Cancel</button>
+                                    </div>
+                                </form>
+
+                                <!-- Success Message (Hidden by default) -->
+                                <div id="success-message" class="hidden mt-6 text-center py-8">
+                                    <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <h4 class="text-xl font-bold text-slate-900">Booking Received!</h4>
+                                    <p class="text-slate-500 mt-2">We have sent a confirmation email to you. See you soon!</p>
+                                    <button onclick="closeModal()" class="mt-6 text-teal-600 font-semibold hover:underline">Close Window</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Modal Logic
+        const modal = document.getElementById('appointment-modal');
+        const form = document.getElementById('booking-form');
+        const successMsg = document.getElementById('success-message');
+        const submitBtn = document.getElementById('submit-btn');
+
+        function openModal() {
+            modal.classList.remove('hidden');
+            // Reset form state on open
+            form.classList.remove('hidden');
+            successMsg.classList.add('hidden');
+            form.reset();
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        // Form Handling
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Loading State
+            const originalBtnContent = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<div class="loader"></div>';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            // Simulate API Call
+            setTimeout(() => {
+                form.classList.add('hidden');
+                successMsg.classList.remove('hidden');
+                
+                // Reset button for next time
+                submitBtn.innerHTML = originalBtnContent;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+            }, 1500);
+        });
+
+        // FAQ Accordion Logic
+        document.querySelectorAll('.accordion-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('.fa-chevron-down');
+                
+                // Toggle current item
+                content.classList.toggle('active');
+                if (content.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.style.transform = "rotate(180deg)";
+                } else {
+                    content.style.maxHeight = 0;
+                    icon.style.transform = "rotate(0deg)";
+                }
+
+                // Close other items
+                document.querySelectorAll('.accordion-btn').forEach(otherBtn => {
+                    if (otherBtn !== button) {
+                        const otherContent = otherBtn.nextElementSibling;
+                        const otherIcon = otherBtn.querySelector('.fa-chevron-down');
+                        otherContent.classList.remove('active');
+                        otherContent.style.maxHeight = 0;
+                        otherIcon.style.transform = "rotate(0deg)";
+                    }
+                });
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
