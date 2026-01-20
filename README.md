@@ -4,7 +4,7 @@ A professional, responsive, and fully functional single-page website designed fo
 
 🚀 Live Demo
 
-(Optional: If you host this on GitHub Pages, put the link here, e.g., https://www.google.com/search?q=https://yourusername.github.io/zenith-dental)
+[https://zenith-dental-one.vercel.app/]
 
 🎨 Design Philosophy
 
@@ -22,7 +22,7 @@ Interactive Booking Modal: Functional appointment form with validation and loadi
 
 Trust Building Sections:
 
-Meet the Team: Grid layout for staff profiles.
+Meet the Team: Grid Layout for Staff Profiles.
 
 Smile Gallery: "Before & After" visuals with hover effects.
 
@@ -34,11 +34,11 @@ Tech Stack: Pure HTML5, Tailwind CSS (via CDN), and Vanilla JavaScript.
 
 🛠️ Installation & Usage
 
-Since this project uses Tailwind CSS via CDN, there is no build step required.
+Since this project utilizes Tailwind CSS via CDN, no build step is required.
 
 Clone the repository:
 
-git clone [https://github.com/Haris-Rindh/zenith-dental-clinic.git](https://github.com/yourusername/zenith-dental-clinic.git)
+git clone [https://github.com/Haris-Rindh/Zenith-dental.git](https://github.com/Haris-Rindh/Zenith-dental.git)
 
 
 Open the project:
