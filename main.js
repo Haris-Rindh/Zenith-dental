@@ -1,4 +1,4 @@
-// Advanced Interactive Logic for Zenith Dental Clinic
+// Advanced Premium Interaction Logic for Zenith Dental Clinic
 
 // --- Service Subpages Database ---
 const servicesData = {
@@ -64,26 +64,167 @@ const servicesData = {
   }
 };
 
+// --- Dental Blog Articles Database ---
+const blogArticles = {
+  brushing: {
+    title: "The Right Way to Brush: Are you doing it wrong?",
+    date: "June 2026",
+    read: "4 Min Read",
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80",
+    content: [
+      "<p>Brushing your teeth seems simple, but clinic evaluations show that over 70% of adults brush in horizontal strokes that damage tooth enamel and push bacteria beneath the gum line. This abrasive method leads to gum recession and root exposure.</p>",
+      "<h3 style='font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem;'>The Modified Bass Method</h3>",
+      "<p>Hygienists recommend the circular Bass technique: Angle your toothbrush bristles at a 45-degree angle toward the gum line. Move the brush in very small, gentle circular vibrations, then sweep downwards (or upwards for bottom teeth) away from the gums. This sweeps plaque out of the subgingival pocket safely.</p>",
+      "<h3 style='font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem;'>Don't Brush Too Soon After Meals</h3>",
+      "<p>Eating acidic foods (like citrus, sodas, or vinegar) softens tooth enamel temporarily. If you brush immediately, you rub away microscopic layers of enamel. We advise waiting 30 minutes after meals or rinsing thoroughly with plain water before brushing.</p>"
+    ]
+  },
+  diet: {
+    title: "Top 5 Foods for Naturally Stronger Enamel",
+    date: "May 2026",
+    read: "5 Min Read",
+    image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80",
+    content: [
+      "<p>Your teeth are living structures that constantly demineralize and remineralize throughout the day. While brushing removes plaque, your diet supplies the raw building blocks required to repair enamel structure naturally.</p>",
+      "<h3 style='font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem;'>1. Cheese and Yogurt (Calcium Boost)</h3>",
+      "<p>Dairy foods are rich in calcium and phosphates, which bond to tooth enamel to replace lost mineral content. They also stimulate saliva production—your body's natural defense against tooth decay.</p>",
+      "<h3 style='font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem;'>2. Dark Leafy Greens (Minerals & Vitamins)</h3>",
+      "<p>Kale, spinach, and collard greens provide calcium alongside Vitamin K, which helps your body direct calcium directly into bone structures and enamel rather than calcium buildup in arteries.</p>",
+      "<h3 style='font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem;'>3. Green Tea (Antioxidant Shields)</h3>",
+      "<p>Green tea contains polyphenols and natural fluorides that kill cavity-causing mouth bacteria, shielding your teeth from acidic plaque damage between meals.</p>"
+    ]
+  },
+  floss: {
+    title: "Flossing vs. Waterpicks: Which is better?",
+    date: "April 2026",
+    read: "3 Min Read",
+    image: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=800&q=80",
+    content: [
+      "<p>Interdental cleaning is non-negotiable. Toothbrush bristles only clean 60% of tooth surfaces, leaving the tight spaces between teeth highly susceptible to cavities and periodontal disease.</p>",
+      "<h3 style='font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem;'>Traditional Floss: The Gold Standard for Plaque</h3>",
+      "<p>Mechanical string floss physically scrapes sticky bacterial film (plaque) off the tooth surfaces. It is highly effective at scraping off calculus buildup in tight interdental contacts where pressure alone cannot remove it.</p>",
+      "<h3 style='font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem;'>Waterpicks: Ideal for Gums and Braces</h3>",
+      "<p>Pressurized water irrigators wash away loose food debris and flush deep gum pockets. They are highly comfortable and crucial for patients with braces, dental bridges, or arthritis who struggle with string dexterity. However, they lack the scraping friction of traditional thread floss.</p>",
+      "<h3 style='font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem;'>The Clinician's Recommendation</h3>",
+      "<p>For optimal health, use a water flosser first to clear debris, followed by string floss to scrape contact points before your bedtime brush.</p>"
+    ]
+  }
+};
+
+// --- Treatment Gallery Lightbox Database ---
+const galleryCases = {
+  veneers: {
+    tag: "Cosmetic Restoration",
+    title: "Porcelain Veneers Transformation",
+    desc: "This patient wanted to correct staining and minor overlaps on their front teeth. We placed custom-crafted porcelain veneers over two clinical appointments. The result is a highly natural, bright, and symmetrical smile.",
+    img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80",
+    dentist: "Dr. Sarah Mitchell",
+    plan: "2 Visits (Prep & Bonding)"
+  },
+  bonding: {
+    tag: "Teeth Reshaping",
+    title: "Composite Dental Bonding Restoration",
+    desc: "A composite resin dental bonding treatment was completed to repair a chipped front incisor. We matched the resin material to the patient's enamel shade and hand-sculpted the restoration to restore the full incisal edge.",
+    img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80",
+    dentist: "Dr. Sarah Mitchell",
+    plan: "1 Visit (45 Minutes)"
+  },
+  crowns: {
+    tag: "Structural Repair",
+    title: "Porcelain Crown tooth recovery",
+    desc: "This patient required root protection after damage to a pre-existing molar. We placed a biocompatible porcelain crown that provides structural strength for chewing while matching the patient's tooth color index perfectly.",
+    img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
+    dentist: "Dr. Marcus Chen",
+    plan: "2 Visits (Digital Scanning & Fitting)"
+  }
+};
+
+// --- i18n English / Spanish translation strings ---
+const translations = {
+  en: {
+    nav_about: "About Us",
+    nav_services: "Services",
+    nav_gallery: "Gallery",
+    nav_team: "Team",
+    nav_stories: "Stories",
+    nav_faq: "FAQ",
+    nav_book: "Book Appointment",
+    hero_badge: "Accepting New Patients",
+    hero_title: "Gentle Care for <br>Your Best Smile",
+    hero_desc: "Experience anxiety-free dentistry in a modern, soothing environment. We combine state-of-the-art dental technology with a compassionate touch to keep your family smiling.",
+    btn_book: "Book Your Visit",
+    btn_procedures: "View Procedures",
+    calc_subtitle: "Cost Estimator",
+    calc_title: "Treatment Cost Calculator",
+    calc_desc: "Select procedures and your insurance provider to estimate your out-of-pocket costs and financing terms.",
+    calc_header_procedures: "Select Procedures",
+    calc_header_insurance: "Select Insurance",
+    calc_header_estimate: "Estimate Summary",
+    calc_label_subtotal: "Subtotal Cost",
+    calc_label_coverage: "Estimated Insurance Coverage",
+    calc_label_outofpocket: "Your Out-of-Pocket Estimate",
+    calc_label_financing: "CareCredit Financing",
+    calc_label_financing_sub: "12-Month Interest-Free plan",
+    btn_book_estimate: "Book appointment for this estimate",
+    blog_subtitle: "Patient Education",
+    blog_title: "Recent Dental Articles",
+    blog_desc: "Insights and advice from our dental clinicians to maintain a healthy smile at home."
+  },
+  es: {
+    nav_about: "Nosotros",
+    nav_services: "Servicios",
+    nav_gallery: "Galería",
+    nav_team: "Equipo",
+    nav_stories: "Opiniones",
+    nav_faq: "Preguntas",
+    nav_book: "Reservar Cita",
+    hero_badge: "Aceptando Nuevos Pacientes",
+    hero_title: "Cuidado Delicado para su <br>Mejor Sonrisa",
+    hero_desc: "Experimente una odontología libre de ansiedad en un ambiente moderno y relajante. Combinamos tecnología dental de vanguardia con un toque compasivo para mantener sonriente a su familia.",
+    btn_book: "Reserve Su Visita",
+    btn_procedures: "Ver Tratamientos",
+    calc_subtitle: "Calculador de Costos",
+    calc_title: "Calculadora de Costos de Tratamiento",
+    calc_desc: "Seleccione los tratamientos y su seguro para estimar sus costos finales y plazos de financiamiento.",
+    calc_header_procedures: "Seleccionar Procedimientos",
+    calc_header_insurance: "Seleccionar Seguro",
+    calc_header_estimate: "Resumen del Estimado",
+    calc_label_subtotal: "Costo Subtotal",
+    calc_label_coverage: "Cobertura de Seguro Estimada",
+    calc_label_outofpocket: "Su Estimado de Bolsillo",
+    calc_label_financing: "Financiamiento CareCredit",
+    calc_label_financing_sub: "Plan de 12 meses sin intereses",
+    btn_book_estimate: "Reservar cita con este estimado",
+    blog_subtitle: "Educación al Paciente",
+    blog_title: "Artículos Dentales Recientes",
+    blog_desc: "Consejos y análisis de nuestros clínicos dentales para cuidar su sonrisa en casa."
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+  let currentLanguage = 'en';
+
   // --- Client-Side Hash Router ---
   function router() {
     const hash = window.location.hash || '#home';
     const homeView = document.getElementById('view-home');
     const detailView = document.getElementById('view-service-detail');
+    const blogView = document.getElementById('view-blog-detail');
     
+    // Reset views visibility
+    if (homeView) homeView.classList.add('hidden');
+    if (detailView) detailView.classList.add('hidden');
+    if (blogView) blogView.classList.add('hidden');
+
     if (hash === '#home' || hash === '') {
       if (homeView) homeView.classList.remove('hidden');
-      if (detailView) detailView.classList.add('hidden');
     } else if (hash.startsWith('#services/')) {
       const serviceKey = hash.split('/')[1];
       const data = servicesData[serviceKey];
       
       if (data) {
-        if (homeView) homeView.classList.add('hidden');
         if (detailView) {
           detailView.classList.remove('hidden');
-          
-          // Populate view details
           document.getElementById('detail-title').textContent = data.title;
           document.getElementById('detail-desc').textContent = data.description;
           document.getElementById('detail-img').src = data.image;
@@ -92,12 +233,11 @@ document.addEventListener('DOMContentLoaded', () => {
           document.getElementById('detail-recovery').textContent = data.recovery;
           document.getElementById('detail-insurance').textContent = data.insurance;
           
-          // Populate steps
           const stepsContainer = document.getElementById('detail-steps-container');
           if (stepsContainer) {
             stepsContainer.innerHTML = '';
             data.steps.forEach(step => {
-              const stepHtml = `
+              stepsContainer.insertAdjacentHTML('beforeend', `
                 <div class="step-card">
                   <div class="step-num">${step.num}</div>
                   <div>
@@ -105,9 +245,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="step-desc">${step.desc}</p>
                   </div>
                 </div>
-              `;
-              stepsContainer.insertAdjacentHTML('beforeend', stepHtml);
+              `);
             });
+          }
+        }
+        window.scrollTo(0, 0);
+      } else {
+        window.location.hash = '#home';
+      }
+    } else if (hash.startsWith('#blog/')) {
+      const articleKey = hash.split('/')[1];
+      const article = blogArticles[articleKey];
+
+      if (article) {
+        if (blogView) {
+          blogView.classList.remove('hidden');
+          document.getElementById('blog-detail-title').textContent = article.title;
+          document.getElementById('blog-detail-date').textContent = article.date;
+          document.getElementById('blog-detail-read').textContent = article.read;
+          document.getElementById('blog-detail-img').src = article.image;
+          
+          const contentContainer = document.getElementById('blog-detail-content');
+          if (contentContainer) {
+            contentContainer.innerHTML = article.content.join('');
           }
         }
         window.scrollTo(0, 0);
@@ -126,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!statusBadgeContainer) return;
 
     const now = new Date();
-    const day = now.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+    const day = now.getDay();
     const hour = now.getHours();
     const minute = now.getMinutes();
     const timeDecimal = hour + minute / 60;
@@ -134,15 +294,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let isOpen = false;
 
     if (day >= 1 && day <= 5) {
-      // Mon - Fri: 8:00 AM - 6:00 PM (8.0 to 18.0)
-      if (timeDecimal >= 8.0 && timeDecimal < 18.0) {
-        isOpen = true;
-      }
+      if (timeDecimal >= 8.0 && timeDecimal < 18.0) isOpen = true;
     } else if (day === 6) {
-      // Saturday: 9:00 AM - 2:00 PM (9.0 to 14.0)
-      if (timeDecimal >= 9.0 && timeDecimal < 14.0) {
-        isOpen = true;
-      }
+      if (timeDecimal >= 9.0 && timeDecimal < 14.0) isOpen = true;
     }
 
     if (isOpen) {
@@ -162,9 +316,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   updateClinicStatus();
-  setInterval(updateClinicStatus, 60000); // Check every minute
 
-  // --- Sticky Navbar Shadow & Height ---
+  // --- Sticky Navbar Shadow ---
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
@@ -193,7 +346,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Close menu when clicking a link
     mobileMenu.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
@@ -202,6 +354,154 @@ document.addEventListener('DOMContentLoaded', () => {
           menuIcon.classList.add('fa-bars');
         }
       });
+    });
+  }
+
+  // --- Light / Dark Mode Toggle ---
+  const themeToggleBtn = document.getElementById('theme-toggle-btn');
+  const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
+
+  // Load persisted theme
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  updateThemeIcon(savedTheme);
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+  }
+
+  function updateThemeIcon(theme) {
+    if (themeIcon) {
+      if (theme === 'dark') {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      }
+    }
+  }
+
+  // --- Multi-Language Switcher (EN/ES Translation) ---
+  const langToggleBtn = document.getElementById('lang-toggle-btn');
+  if (langToggleBtn) {
+    langToggleBtn.addEventListener('click', () => {
+      currentLanguage = currentLanguage === 'en' ? 'es' : 'en';
+      langToggleBtn.textContent = currentLanguage === 'en' ? 'ES' : 'EN';
+      translatePage(currentLanguage);
+    });
+  }
+
+  function translatePage(lang) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        el.innerHTML = translations[lang][key];
+      }
+    });
+  }
+
+  // --- Treatment Out-of-Pocket Cost Calculator ---
+  const calcCheckboxes = document.querySelectorAll('.calc-check');
+  const calcInsurance = document.getElementById('calc-insurance');
+
+  const prices = {
+    cleaning: 250,
+    whitening: 399,
+    fillings: 190,
+    crown: 950,
+    implants: 2999,
+    invisalign: 4500
+  };
+
+  // Insurance Deductions (Preventive vs Basic vs Restorative vs Cosmetic)
+  // Delta covers 100% cleaning, 70% fillings, 50% crowns/implants/ortho, 0% whitening
+  const coverageRates = {
+    none: { cleaning: 0, whitening: 0, fillings: 0, crown: 0, implants: 0, invisalign: 0 },
+    delta: { cleaning: 1.0, whitening: 0, fillings: 0.8, crown: 0.5, implants: 0.5, invisalign: 0.4 },
+    cigna: { cleaning: 1.0, whitening: 0, fillings: 0.7, crown: 0.5, implants: 0.4, invisalign: 0.5 },
+    metlife: { cleaning: 0.9, whitening: 0, fillings: 0.8, crown: 0.4, implants: 0.5, invisalign: 0.3 },
+    aetna: { cleaning: 1.0, whitening: 0, fillings: 0.8, crown: 0.5, implants: 0.3, invisalign: 0.4 }
+  };
+
+  function runCalculator() {
+    let subtotal = 0;
+    let totalCoverage = 0;
+    const insuranceProvider = calcInsurance ? calcInsurance.value : 'none';
+
+    calcCheckboxes.forEach(box => {
+      if (box.checked) {
+        const value = box.value;
+        const basePrice = prices[value];
+        subtotal += basePrice;
+
+        const rate = coverageRates[insuranceProvider][value] || 0;
+        totalCoverage += basePrice * rate;
+      }
+    });
+
+    const outOfPocket = Math.max(0, subtotal - totalCoverage);
+    const monthlyCareCredit = outOfPocket > 0 ? (outOfPocket / 12) : 0;
+
+    // Render results
+    const subtotalEl = document.getElementById('calc-subtotal');
+    const coverageEl = document.getElementById('calc-coverage');
+    const oopEl = document.getElementById('calc-oop');
+    const installmentsEl = document.getElementById('calc-installments');
+
+    if (subtotalEl) subtotalEl.textContent = `$${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    if (coverageEl) coverageEl.textContent = `-$${totalCoverage.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    if (oopEl) oopEl.textContent = `$${outOfPocket.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    if (installmentsEl) installmentsEl.textContent = `$${monthlyCareCredit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} / mo`;
+  }
+
+  calcCheckboxes.forEach(box => box.addEventListener('change', runCalculator));
+  if (calcInsurance) calcInsurance.addEventListener('change', runCalculator);
+
+  // --- Real-Time FAQ Search and Category Filters ---
+  const faqSearchInput = document.getElementById('faq-search');
+  const faqFilterButtons = document.querySelectorAll('.btn-faq-filter');
+
+  if (faqSearchInput) {
+    faqSearchInput.addEventListener('input', runFaqFilters);
+  }
+
+  faqFilterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      faqFilterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      runFaqFilters();
+    });
+  });
+
+  function runFaqFilters() {
+    const searchText = faqSearchInput ? faqSearchInput.value.toLowerCase().trim() : '';
+    const activeFilterBtn = document.querySelector('.btn-faq-filter.active');
+    const categoryFilter = activeFilterBtn ? activeFilterBtn.getAttribute('data-filter') : 'all';
+    
+    const faqCards = document.querySelectorAll('.faq-container .faq-card');
+
+    faqCards.forEach(card => {
+      const title = card.querySelector('.faq-title').textContent.toLowerCase();
+      const content = card.querySelector('.faq-inner') ? card.querySelector('.faq-inner').textContent.toLowerCase() : '';
+      const category = card.getAttribute('data-category');
+
+      const matchesSearch = title.includes(searchText) || content.includes(searchText);
+      const matchesCategory = categoryFilter === 'all' || category === categoryFilter;
+
+      if (matchesSearch && matchesCategory) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
     });
   }
 
@@ -299,7 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('resize', updateSliderPosition);
-    setTimeout(updateSliderPosition, 150); // Small delay to let bounding box compute
+    setTimeout(updateSliderPosition, 150);
   }
 
   // --- Interactive Before / After Gallery Slider ---
@@ -384,7 +684,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Check if Web3Forms key is configured
       const accessKey = bookingForm.querySelector('input[name="access_key"]')?.value;
 
       const originalBtnContent = submitBtn.innerHTML;
@@ -393,7 +692,6 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.classList.add('btn-disabled');
 
       if (accessKey && accessKey !== 'YOUR_ACCESS_KEY_HERE') {
-        // Submit real request to Web3Forms
         const formData = new FormData(bookingForm);
         fetch('https://api.web3forms.com/submit', {
           method: 'POST',
@@ -419,7 +717,6 @@ document.addEventListener('DOMContentLoaded', () => {
           alert('Network connection error. Please try again.');
         });
       } else {
-        // Fallback simulated submission
         setTimeout(() => {
           submitBtn.innerHTML = originalBtnContent;
           submitBtn.disabled = false;
@@ -478,10 +775,34 @@ window.closePricingModal = function() {
   }
 };
 
+// --- Treatment Gallery Lightbox Triggers (NEW) ---
+window.openLightbox = function(caseKey) {
+  const modal = document.getElementById('lightbox-modal');
+  const data = galleryCases[caseKey];
+  
+  if (modal && data) {
+    modal.classList.add('open');
+    document.getElementById('lightbox-img').src = data.img;
+    document.getElementById('lightbox-tag').textContent = data.tag;
+    document.getElementById('lightbox-title').textContent = data.title;
+    document.getElementById('lightbox-desc').textContent = data.desc;
+    document.getElementById('lightbox-dentist').textContent = data.dentist;
+    document.getElementById('lightbox-plan').textContent = data.plan;
+  }
+};
+
+window.closeLightbox = function() {
+  const modal = document.getElementById('lightbox-modal');
+  if (modal) {
+    modal.classList.remove('open');
+  }
+};
+
 // Close modals on Escape key
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     window.closeModal();
     window.closePricingModal();
+    window.closeLightbox();
   }
 });

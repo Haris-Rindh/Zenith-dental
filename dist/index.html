@@ -79,8 +79,8 @@
     ]
   }
   </script>
-  <script type="module" crossorigin src="/assets/index-B9Sv7jez.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-9_KOyhsl.css">
+  <script type="module" crossorigin src="/assets/index-C9CHN0bj.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DuvrZ6CW.css">
 </head>
 <body>
 
@@ -95,14 +95,23 @@
       </a>
 
       <!-- Desktop Links -->
-      <div class="nav-links">
-        <a href="#about" class="nav-link">About Us</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#gallery" class="nav-link">Gallery</a>
-        <a href="#team" class="nav-link">Team</a>
-        <a href="#testimonials" class="nav-link">Stories</a>
-        <a href="#faq" class="nav-link">FAQ</a>
-        <button onclick="window.openModal()" class="btn btn-primary">Book Appointment</button>
+      <div class="nav-links" style="display: flex; align-items: center;">
+        <a href="#about" class="nav-link" data-i18n="nav_about">About Us</a>
+        <a href="#services" class="nav-link" data-i18n="nav_services">Services</a>
+        <a href="#gallery" class="nav-link" data-i18n="nav_gallery">Gallery</a>
+        <a href="#team" class="nav-link" data-i18n="nav_team">Team</a>
+        <a href="#testimonials" class="nav-link" data-i18n="nav_stories">Stories</a>
+        <a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a>
+        
+        <!-- Language Switcher button -->
+        <button id="lang-toggle-btn" class="btn-lang" aria-label="Toggle Language Switch">ES</button>
+        
+        <!-- Theme Mode Toggle button -->
+        <button id="theme-toggle-btn" class="btn-toggle" aria-label="Toggle theme mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button onclick="window.openModal()" class="btn btn-primary" data-i18n="nav_book">Book Appointment</button>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -114,13 +123,13 @@
     <!-- Mobile Menu Drawer -->
     <div id="mobile-menu" class="mobile-menu">
       <div class="mobile-menu-links">
-        <a href="#about" class="nav-link">About Us</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#gallery" class="nav-link">Gallery</a>
-        <a href="#team" class="nav-link">Team</a>
-        <a href="#testimonials" class="nav-link">Stories</a>
-        <a href="#faq" class="nav-link">FAQ</a>
-        <button onclick="window.openModal()" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Book Appointment</button>
+        <a href="#about" class="nav-link" data-i18n="nav_about">About Us</a>
+        <a href="#services" class="nav-link" data-i18n="nav_services">Services</a>
+        <a href="#gallery" class="nav-link" data-i18n="nav_gallery">Gallery</a>
+        <a href="#team" class="nav-link" data-i18n="nav_team">Team</a>
+        <a href="#testimonials" class="nav-link" data-i18n="nav_stories">Stories</a>
+        <a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a>
+        <button onclick="window.openModal()" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;" data-i18n="nav_book">Book Appointment</button>
       </div>
     </div>
   </nav>
@@ -132,24 +141,25 @@
     <header class="hero">
       <div class="hero-bg"></div>
       <div class="container">
+        
         <div class="hero-text animate-fade-in-up">
-          <div class="badge">
+          <div class="badge" data-i18n="hero_badge">
             <span class="badge-dot animate-pulse"></span>
             Accepting New Patients
           </div>
           
-          <h1 class="hero-title">
+          <h1 class="hero-title" data-i18n="hero_title">
             Gentle Care for <br>
             <span class="text-gradient">Your Best Smile</span>
           </h1>
           
-          <p class="hero-description">
+          <p class="hero-description" data-i18n="hero_desc">
             Experience anxiety-free dentistry in a modern, soothing environment. We combine state-of-the-art dental technology with a compassionate touch to keep your family smiling.
           </p>
           
           <div class="hero-actions">
-            <button onclick="window.openModal()" class="btn btn-primary">Book Your Visit</button>
-            <a href="#services" class="btn btn-secondary">
+            <button onclick="window.openModal()" class="btn btn-primary" data-i18n="btn_book">Book Your Visit</button>
+            <a href="#services" class="btn btn-secondary" data-i18n="btn_procedures">
               <i class="fa-regular fa-circle-play text-gradient" style="margin-right: 0.5rem;"></i>
               View Procedures
             </a>
@@ -222,7 +232,6 @@
                 <span class="hours-closed">Closed</span>
               </li>
             </ul>
-            <!-- Dynamic Open/Closed Status Badge -->
             <div id="clinic-status-badge"></div>
           </article>
 
@@ -348,7 +357,6 @@
         </div>
 
         <div class="services-grid">
-          <!-- Service 1 -->
           <article class="service-card">
             <div class="service-icon-wrapper bg-teal-light">
               <i class="fa-solid fa-wand-magic-sparkles"></i>
@@ -358,7 +366,6 @@
             <a href="#services/whitening" class="service-link text-gradient">Learn details &rarr;</a>
           </article>
 
-          <!-- Service 2 -->
           <article class="service-card">
             <div class="service-icon-wrapper bg-blue-light">
               <i class="fa-solid fa-tooth"></i>
@@ -368,7 +375,6 @@
             <a href="#services/implants" class="service-link text-gradient">Learn details &rarr;</a>
           </article>
 
-          <!-- Service 3 -->
           <article class="service-card">
             <div class="service-icon-wrapper bg-purple-light">
               <i class="fa-solid fa-magnifying-glass-plus"></i>
@@ -378,7 +384,6 @@
             <a href="#services/exams" class="service-link text-gradient">Learn details &rarr;</a>
           </article>
 
-          <!-- Service 4 -->
           <article class="service-card">
             <div class="service-icon-wrapper bg-orange-light">
               <i class="fa-solid fa-child-reaching"></i>
@@ -396,6 +401,92 @@
       </div>
     </section>
 
+    <!-- Out-of-Pocket Cost Calculator Section (NEW Component) -->
+    <section id="calculator" class="services" style="background-color: #fff;">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-subtitle" data-i18n="calc_subtitle">Cost Estimator</span>
+          <h2 class="section-title" data-i18n="calc_title">Treatment Cost Calculator</h2>
+          <p class="section-desc" data-i18n="calc_desc">Select procedures and your insurance provider to estimate your out-of-pocket costs and financing terms.</p>
+        </div>
+
+        <div class="calculator-grid" style="display: grid; grid-template-columns: 1fr; gap: 3rem; margin-top: 3rem;">
+          <!-- Left checklist panel -->
+          <div style="background-color: hsl(var(--slate-50)); padding: 2.5rem; border-radius: 2rem; border: 1px solid hsl(var(--slate-100)); transition: all 0.3s ease;">
+            <h3 style="margin-bottom: 1.5rem;" data-i18n="calc_header_procedures">Select Procedures</h3>
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; font-size: 0.9375rem; font-weight: 600;">
+                <input type="checkbox" class="calc-check" value="cleaning" style="width: 1.25rem; height: 1.25rem; accent-color: hsl(var(--teal-500));">
+                Routine Cleaning &amp; Exam ($250)
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; font-size: 0.9375rem; font-weight: 600;">
+                <input type="checkbox" class="calc-check" value="whitening" style="width: 1.25rem; height: 1.25rem; accent-color: hsl(var(--teal-500));">
+                Laser Teeth Whitening ($399)
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; font-size: 0.9375rem; font-weight: 600;">
+                <input type="checkbox" class="calc-check" value="fillings" style="width: 1.25rem; height: 1.25rem; accent-color: hsl(var(--teal-500));">
+                Composite White Fillings ($190)
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; font-size: 0.9375rem; font-weight: 600;">
+                <input type="checkbox" class="calc-check" value="crown" style="width: 1.25rem; height: 1.25rem; accent-color: hsl(var(--teal-500));">
+                Porcelain Dental Crown ($950)
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; font-size: 0.9375rem; font-weight: 600;">
+                <input type="checkbox" class="calc-check" value="implants" style="width: 1.25rem; height: 1.25rem; accent-color: hsl(var(--teal-500));">
+                Dental Implant post + Crown ($2,999)
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; font-size: 0.9375rem; font-weight: 600;">
+                <input type="checkbox" class="calc-check" value="invisalign" style="width: 1.25rem; height: 1.25rem; accent-color: hsl(var(--teal-500));">
+                Clear Invisalign Aligners ($4,500)
+              </label>
+            </div>
+
+            <h3 style="margin: 2.5rem 0 1rem 0;" data-i18n="calc_header_insurance">Select Insurance</h3>
+            <select id="calc-insurance" class="form-select" style="max-width: 22rem;">
+              <option value="none">No Insurance / Self-Pay</option>
+              <option value="delta">Delta Dental (PPO)</option>
+              <option value="cigna">Cigna Dental (PPO)</option>
+              <option value="metlife">MetLife Dental</option>
+              <option value="aetna">Aetna Dental</option>
+            </select>
+          </div>
+
+          <!-- Right summary panel -->
+          <div style="background-color: hsl(var(--slate-50)); padding: 2.5rem; border-radius: 2rem; border: 1px solid hsl(var(--slate-100)); display: flex; flex-direction: column; gap: 1.5rem; transition: all 0.3s ease;">
+            <h3 data-i18n="calc_header_estimate">Estimate Summary</h3>
+            
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px solid hsl(var(--slate-200)); padding-bottom: 0.5rem;">
+                <span style="font-weight: 600; color: hsl(var(--slate-500));" data-i18n="calc_label_subtotal">Subtotal Cost</span>
+                <span id="calc-subtotal" class="price-val" style="font-size: 1.125rem;">$0.00</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px solid hsl(var(--slate-200)); padding-bottom: 0.5rem;">
+                <span style="font-weight: 600; color: hsl(var(--slate-500));" data-i18n="calc_label_coverage">Estimated Insurance Coverage</span>
+                <span id="calc-coverage" style="font-weight: 700; color: #166534;">-$0.00</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; border-bottom: 2px solid hsl(var(--teal-500)); padding-bottom: 0.5rem;">
+                <span style="font-weight: 800; color: hsl(var(--slate-900));" data-i18n="calc_label_outofpocket">Your Out-of-Pocket Estimate</span>
+                <span id="calc-oop" class="price-val" style="font-size: 1.5rem; color: hsl(var(--teal-600));">$0.00</span>
+              </div>
+              
+              <!-- Installments CareCredit info -->
+              <div style="display: flex; justify-content: space-between; background-color: hsl(var(--teal-50)); padding: 1.25rem; border-radius: 0.75rem; align-items: center; border: 1px dashed hsl(var(--teal-100));">
+                <div>
+                  <span style="font-weight: 800; display: block; color: hsl(var(--slate-900));" data-i18n="calc_label_financing">CareCredit Financing</span>
+                  <span style="font-size: 0.75rem; color: hsl(var(--slate-500));" data-i18n="calc_label_financing_sub">12-Month Interest-Free plan</span>
+                </div>
+                <span id="calc-installments" class="price-val" style="font-size: 1.35rem; color: hsl(var(--slate-900));">$0.00 / mo</span>
+              </div>
+            </div>
+
+            <button onclick="window.openModal()" class="btn btn-primary" style="width: 100%; margin-top: auto;" data-i18n="btn_book_estimate">Book appointment for this estimate</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- Smile Gallery Section -->
     <section id="gallery" class="gallery">
       <div class="container">
@@ -407,7 +498,8 @@
         </div>
 
         <div class="gallery-container">
-          <div class="slider-wrapper">
+          <!-- Image Comparison Slider -->
+          <div class="slider-wrapper" style="margin-bottom: 3rem;">
             <span class="slider-label label-before">Before Whitening</span>
             <span class="slider-label label-after">After Treatment</span>
 
@@ -418,6 +510,36 @@
               <div class="slider-button">
                 <i class="fa-solid fa-arrows-left-right"></i>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lightbox Gallery Grid (NEW Component) -->
+        <div class="gallery-grid" style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+          <!-- Veneers Card -->
+          <div class="gallery-card" onclick="window.openLightbox('veneers')" style="background-color: #fff; border-radius: 1.5rem; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid hsl(var(--slate-100)); cursor: pointer; transition: all 0.3s ease;">
+            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&h=250&q=80" alt="Porcelain Veneers Case study" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 1.25rem;">
+              <span style="color: hsl(var(--teal-500)); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Cosmetic Restoration</span>
+              <h3 style="font-size: 1.125rem; margin-top: 0.25rem;">Porcelain Veneers transformation</h3>
+            </div>
+          </div>
+          
+          <!-- Bonding Card -->
+          <div class="gallery-card" onclick="window.openLightbox('bonding')" style="background-color: #fff; border-radius: 1.5rem; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid hsl(var(--slate-100)); cursor: pointer; transition: all 0.3s ease;">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&h=250&q=80" alt="Dental Bonding Case study" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 1.25rem;">
+              <span style="color: hsl(var(--teal-500)); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Teeth Reshaping</span>
+              <h3 style="font-size: 1.125rem; margin-top: 0.25rem;">Dental Bonding restoration</h3>
+            </div>
+          </div>
+
+          <!-- Crowns Card -->
+          <div class="gallery-card" onclick="window.openLightbox('crowns')" style="background-color: #fff; border-radius: 1.5rem; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid hsl(var(--slate-100)); cursor: pointer; transition: all 0.3s ease;">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&h=250&q=80" alt="Porcelain Crowns Case study" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 1.25rem;">
+              <span style="color: hsl(var(--teal-500)); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Structural Repair</span>
+              <h3 style="font-size: 1.125rem; margin-top: 0.25rem;">Porcelain Crown Molar recovery</h3>
             </div>
           </div>
         </div>
@@ -436,7 +558,6 @@
         </div>
 
         <div class="team-grid">
-          <!-- Doctor 1 -->
           <article class="team-card">
             <div class="team-img-wrapper">
               <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&h=400&q=80" alt="Dr. Sarah Mitchell - Lead Clinical Dentist" class="team-img">
@@ -451,7 +572,6 @@
             </div>
           </article>
 
-          <!-- Doctor 2 -->
           <article class="team-card">
             <div class="team-img-wrapper">
               <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&h=400&q=80" alt="Dr. Marcus Chen - Board Certified Orthodontist" class="team-img">
@@ -466,7 +586,6 @@
             </div>
           </article>
 
-          <!-- Doctor 3 -->
           <article class="team-card">
             <div class="team-img-wrapper">
               <img src="https://images.unsplash.com/photo-1594824813573-246434de83fb?auto=format&fit=crop&w=400&h=400&q=80" alt="Dr. Emily Rodriguez - Pediatric Dental Care Expert" class="team-img">
@@ -481,7 +600,6 @@
             </div>
           </article>
 
-          <!-- Doctor 4 -->
           <article class="team-card">
             <div class="team-img-wrapper">
               <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&h=400&q=80" alt="Lisa Sterling - Lead Hygienist" class="team-img">
@@ -510,11 +628,9 @@
           <p class="section-desc">Read real reviews verified from Google Maps listings of patients who experienced our care.</p>
         </div>
 
-        <!-- Reviews Slider Container -->
         <div class="reviews-slider-container">
           <div class="reviews-track" id="reviews-track">
             
-            <!-- Slide 1 -->
             <div class="reviews-slide">
               <article class="testimonial-card">
                 <div class="quote-icon">
@@ -539,7 +655,6 @@
               </article>
             </div>
 
-            <!-- Slide 2 -->
             <div class="reviews-slide">
               <article class="testimonial-card testimonial-featured">
                 <div class="quote-icon">
@@ -564,7 +679,6 @@
               </article>
             </div>
 
-            <!-- Slide 3 -->
             <div class="reviews-slide">
               <article class="testimonial-card">
                 <div class="quote-icon">
@@ -589,7 +703,6 @@
               </article>
             </div>
 
-            <!-- Slide 4 (Additional Review to show slider movement) -->
             <div class="reviews-slide">
               <article class="testimonial-card">
                 <div class="quote-icon">
@@ -616,7 +729,6 @@
 
           </div>
 
-          <!-- Slider navigation controls -->
           <div class="reviews-nav">
             <button id="review-prev-btn" class="reviews-nav-btn" aria-label="Previous Testimonial">
               <i class="fa-solid fa-chevron-left"></i>
@@ -630,6 +742,49 @@
       </div>
     </section>
 
+    <!-- Dental Blog Summary Section (NEW Component) -->
+    <section id="blog-summary" class="blog-summary" style="padding: 6rem 0; background-color: hsl(var(--slate-50));">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle" data-i18n="blog_subtitle">Patient Education</span>
+          <h2 class="section-title" data-i18n="blog_title">Recent Dental Articles</h2>
+          <p class="section-desc" data-i18n="blog_desc">Insights and advice from our dental clinicians to maintain a healthy smile at home.</p>
+        </div>
+        
+        <div class="gallery-grid" style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 3rem;">
+          <!-- Article 1 -->
+          <article class="gallery-card" onclick="window.location.hash = '#blog/brushing'" style="background-color: #fff; border-radius: 1.5rem; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid hsl(var(--slate-100)); cursor: pointer; transition: all 0.3s ease;">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&h=250&q=80" alt="Tooth brushing article" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+              <span style="color: hsl(var(--slate-400)); font-size: 0.75rem; font-weight: 700;">JUNE 2026 &bull; 4 MIN READ</span>
+              <h3 style="font-size: 1.125rem;">The Right Way to Brush: Are you doing it wrong?</h3>
+              <p style="font-size: 0.875rem; color: hsl(var(--slate-500)); line-height: 1.5;">Learn the circular bass method that protects tooth enamel and gum tissue from abrasive toothbrush wear.</p>
+            </div>
+          </article>
+          
+          <!-- Article 2 -->
+          <article class="gallery-card" onclick="window.location.hash = '#blog/diet'" style="background-color: #fff; border-radius: 1.5rem; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid hsl(var(--slate-100)); cursor: pointer; transition: all 0.3s ease;">
+            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=400&h=250&q=80" alt="Dental health food article" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+              <span style="color: hsl(var(--slate-400)); font-size: 0.75rem; font-weight: 700;">MAY 2026 &bull; 5 MIN READ</span>
+              <h3 style="font-size: 1.125rem;">Top 5 Foods for Naturally Stronger Enamel</h3>
+              <p style="font-size: 0.875rem; color: hsl(var(--slate-500)); line-height: 1.5;">Discover calcium and phosphorus-rich foods that naturally rebuild mineral matrix strengths daily.</p>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="gallery-card" onclick="window.location.hash = '#blog/floss'" style="background-color: #fff; border-radius: 1.5rem; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid hsl(var(--slate-100)); cursor: pointer; transition: all 0.3s ease;">
+            <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=400&h=250&q=80" alt="Flossing article" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+              <span style="color: hsl(var(--slate-400)); font-size: 0.75rem; font-weight: 700;">APRIL 2026 &bull; 3 MIN READ</span>
+              <h3 style="font-size: 1.125rem;">Flossing vs. Waterpicks: Which is better?</h3>
+              <p style="font-size: 0.875rem; color: hsl(var(--slate-500)); line-height: 1.5;">Our hygienist outlines findings showing the pros and cons of mechanical thread vs. pressurized water jets.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ Accordion Section -->
     <section id="faq" class="faq">
       <div class="container">
@@ -640,9 +795,24 @@
           <p class="section-desc">Common answers regarding our dental clinic practice, scheduling, and billing.</p>
         </div>
 
+        <!-- FAQ Search & Filters (NEW Component) -->
+        <div class="faq-search-wrapper" style="max-width: 600px; margin: 0 auto 3rem auto; display: flex; flex-direction: column; gap: 1rem;">
+          <div style="position: relative; width: 100%;">
+            <input type="text" id="faq-search" placeholder="Search questions..." style="width: 100%; padding: 0.875rem 1.25rem 0.875rem 3rem; border: 1px solid hsl(var(--slate-300)); border-radius: 9999px; outline: none; font-family: var(--font-family); font-size: 0.9375rem; transition: all 0.2s ease;">
+            <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); color: hsl(var(--slate-400));"></i>
+          </div>
+          
+          <div class="faq-filters" style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;">
+            <button class="btn-faq-filter active" data-filter="all">All Questions</button>
+            <button class="btn-faq-filter" data-filter="insurance">Insurance &amp; Billing</button>
+            <button class="btn-faq-filter" data-filter="anxiety">Dental Anxiety</button>
+            <button class="btn-faq-filter" data-filter="general">General Info</button>
+          </div>
+        </div>
+
         <div class="faq-container">
           
-          <div class="faq-card">
+          <div class="faq-card" data-category="insurance">
             <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-1">
               <span class="faq-title">Do you accept dental insurance plans?</span>
               <div class="faq-icon-wrapper">
@@ -656,7 +826,7 @@
             </div>
           </div>
 
-          <div class="faq-card">
+          <div class="faq-card" data-category="general">
             <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-2">
               <span class="faq-title">Are you currently accepting new patient visits?</span>
               <div class="faq-icon-wrapper">
@@ -670,7 +840,7 @@
             </div>
           </div>
 
-          <div class="faq-card">
+          <div class="faq-card" data-category="anxiety">
             <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-3">
               <span class="faq-title">What accommodations do you make for dental anxiety?</span>
               <div class="faq-icon-wrapper">
@@ -706,16 +876,14 @@
         <p id="detail-desc" class="hero-description" style="max-width: 100%; margin-top: 1rem;">Detailed treatment explanation will load dynamically here.</p>
 
         <div class="service-detail-grid">
-          <!-- Left side: Treatment steps list -->
           <div>
             <h2 class="section-title" style="text-align: left; font-size: 1.5rem; margin-top: 0;">Your Treatment Journey</h2>
             <p style="font-size: 0.9375rem; color: hsl(var(--slate-500)); margin-top: 0.5rem;">Here is what to expect during your procedure from start to finish:</p>
             <div id="detail-steps-container" class="detail-steps">
-              <!-- Dynamically rendered steps here -->
+              <!-- Steps render dynamically -->
             </div>
           </div>
 
-          <!-- Right side: Quick Info Card -->
           <div>
             <div class="detail-summary-card">
               <h3 class="summary-heading font-bold text-slate-800">Procedure Summary</h3>
@@ -749,6 +917,44 @@
     </section>
   </div>
   <!-- END OF SERVICE DETAILS VIEW CONTAINER -->
+
+
+  <!-- BLOG DETAILS VIEW CONTAINER (NEW Dynamic Hash Pages view) -->
+  <div id="view-blog-detail" class="page-view hidden">
+    <section class="service-detail-hero">
+      <div class="container" style="max-width: 800px;">
+        
+        <a href="#home" class="btn btn-secondary" style="margin-bottom: 2rem;">
+          <i class="fa-solid fa-arrow-left" style="margin-right: 0.5rem;"></i>
+          Back to Articles
+        </a>
+        
+        <div style="display: flex; gap: 1rem; align-items: center; color: hsl(var(--slate-400)); font-size: 0.8125rem; font-weight: 700; text-transform: uppercase;">
+          <span id="blog-detail-date">Date</span>
+          <span>&bull;</span>
+          <span id="blog-detail-read">Read Time</span>
+        </div>
+        
+        <h1 id="blog-detail-title" class="hero-title text-gradient" style="font-size: 2.75rem; margin-top: 0.5rem;">Article Title</h1>
+        
+        <img id="blog-detail-img" src="" class="about-img" alt="Blog Illustration" style="width: 100%; height: 360px; object-fit: cover; border-radius: 1.5rem; margin: 2rem 0; box-shadow: var(--shadow-md);">
+        
+        <div id="blog-detail-content" style="font-size: 1.0625rem; color: hsl(var(--slate-600)); line-height: 1.8; display: flex; flex-direction: column; gap: 1.5rem;">
+          <!-- Article text dynamically loads here -->
+        </div>
+
+        <div style="border-top: 1px solid hsl(var(--slate-200)); padding-top: 2rem; margin-top: 3rem; display: flex; gap: 1rem; align-items: center;">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=100&h=100&q=80" style="width: 3.5rem; height: 3.5rem; border-radius: 50%; object-fit: cover;" alt="Dr. Sarah Mitchell">
+          <div>
+            <h4 style="font-size: 1rem; font-weight: 700;">Written by Dr. Sarah Mitchell</h4>
+            <p style="font-size: 0.8125rem; color: hsl(var(--slate-500));">Lead Dentist at Zenith Dental. Passionate about family healthcare education.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+  <!-- END OF BLOG DETAILS VIEW CONTAINER -->
 
 
   <!-- Footer Section -->
@@ -833,7 +1039,7 @@
         
         <!-- Standard Form View -->
         <form id="booking-form" class="booking-form">
-          <!-- Web3Forms Config Key Input (Production Ready Token configuration) -->
+          <!-- Web3Forms Config Key Input -->
           <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
           
           <div class="modal-header">
@@ -912,7 +1118,7 @@
     </div>
   </div>
 
-  <!-- Pricing Sheet Modal Dialog (NEW Modal component) -->
+  <!-- Pricing Sheet Modal Dialog -->
   <div id="pricing-modal" class="modal-overlay" aria-labelledby="pricing-title" role="dialog" aria-modal="true">
     <div class="modal-dialog modal-dialog-large">
       <button onclick="window.closePricingModal()" class="modal-close-btn" aria-label="Close Pricing Window">
@@ -1060,6 +1266,36 @@
         <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: flex-end;">
           <button onclick="window.closePricingModal(); window.openModal();" class="btn btn-primary">Book a Service</button>
           <button onclick="window.closePricingModal()" class="btn btn-secondary">Close Schedule</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Treatment Gallery Lightbox Modal Dialog (NEW Component) -->
+  <div id="lightbox-modal" class="modal-overlay" onclick="window.closeLightbox()">
+    <div class="modal-dialog modal-dialog-large" onclick="event.stopPropagation()">
+      <button onclick="window.closeLightbox()" class="modal-close-btn" aria-label="Close Lightbox Window">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-body">
+        <div class="lightbox-grid" style="display: grid; grid-template-columns: 1fr; gap: 2.5rem;">
+          <!-- Case Image -->
+          <div style="border-radius: 1.5rem; overflow: hidden; box-shadow: var(--shadow-md);">
+            <img id="lightbox-img" src="" alt="Case Study Before & After" style="width: 100%; height: 350px; object-fit: cover; display: block;">
+          </div>
+
+          <!-- Case Details -->
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <span id="lightbox-tag" style="color: hsl(var(--teal-500)); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Tag</span>
+            <h3 id="lightbox-title" style="font-size: 1.625rem; line-height: 1.2;">Title</h3>
+            <p id="lightbox-desc" style="color: hsl(var(--slate-500)); font-size: 0.9375rem; line-height: 1.7;">Description</p>
+            
+            <div style="background-color: hsl(var(--slate-50)); padding: 1.25rem; border-radius: 1rem; border: 1px solid hsl(var(--slate-100)); margin-top: auto; transition: all 0.3s ease;">
+              <p style="font-size: 0.875rem; margin-bottom: 0.375rem; color: hsl(var(--slate-600));"><strong style="color: hsl(var(--slate-800));">Clinical Dentist:</strong> <span id="lightbox-dentist">Dr. Sarah Mitchell</span></p>
+              <p style="font-size: 0.875rem; color: hsl(var(--slate-600));"><strong style="color: hsl(var(--slate-800));">Treatment Schedule:</strong> <span id="lightbox-plan">2 Visits</span></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
