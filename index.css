@@ -102,7 +102,9 @@ html[data-theme="dark"] .modal-dialog,
 html[data-theme="dark"] .detail-summary-card,
 html[data-theme="dark"] .step-card,
 html[data-theme="dark"] .gallery-card,
-html[data-theme="dark"] #calculator > div > div > div {
+html[data-theme="dark"] #calculator > div > div > div,
+html[data-theme="dark"] .pillar-card,
+html[data-theme="dark"] .mobile-sticky-bar {
   background-color: hsl(var(--slate-100)) !important;
   border-color: hsl(var(--slate-200)) !important;
 }
@@ -143,6 +145,11 @@ html[data-theme="dark"] .pricing-table th {
 
 html[data-theme="dark"] .hero-bg {
   background: radial-gradient(ellipse at top right, hsl(var(--teal-900)), hsl(var(--slate-50)) 70%);
+}
+
+html[data-theme="dark"] .trust-pillars {
+  border-top-color: hsl(var(--slate-200));
+  border-bottom-color: hsl(var(--slate-200));
 }
 
 /* Animations */
@@ -857,6 +864,116 @@ html[data-theme="dark"] .hero-bg {
 .section-desc {
   color: hsl(var(--slate-500));
   margin-top: 1rem;
+}
+
+/* "Why Choose Us" Trust Pillars Section */
+.trust-pillars {
+  padding: 6rem 0;
+  background-color: hsl(var(--slate-50));
+  border-top: 1px solid hsl(var(--slate-100));
+  border-bottom: 1px solid hsl(var(--slate-100));
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .pillars-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pillar-card {
+  text-align: center;
+  background-color: #fff;
+  padding: 3rem 2rem;
+  border-radius: 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid hsl(var(--slate-100));
+  transition: all 0.3s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: hsl(var(--teal-100));
+}
+
+.pillar-stat {
+  font-size: 3rem;
+  font-weight: 800;
+  color: hsl(var(--teal-500));
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.pillar-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: hsl(var(--slate-900));
+  margin-bottom: 0.75rem;
+}
+
+.pillar-desc {
+  font-size: 0.875rem;
+  color: hsl(var(--slate-500));
+}
+
+/* Mobile Sticky Conversion Bar Layout */
+.mobile-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid hsl(var(--slate-100));
+  padding: 0.875rem 1.5rem;
+  display: flex;
+  gap: 1rem;
+  z-index: 55;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-sticky-bar.show {
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .mobile-sticky-bar {
+    display: none !important;
+  }
+}
+
+.mobile-sticky-bar .btn {
+  flex: 1;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+/* Form Inline Error Messages */
+.form-error-msg {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: hsl(var(--error));
+  margin-top: 0.25rem;
+  display: block;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.form-error-msg.hidden {
+  display: none;
+}
+
+.form-input.input-error, .form-select.input-error {
+  border-color: hsl(var(--error)) !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
 }
 
 /* About Us Section */
