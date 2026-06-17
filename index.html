@@ -400,6 +400,29 @@
       </div>
     </section>
 
+    <!-- Trust Pillars Section (NEW) -->
+    <section class="trust-pillars">
+      <div class="container">
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <div class="pillar-stat">99.2%</div>
+            <h3 class="pillar-title">Patient Satisfaction</h3>
+            <p class="pillar-desc">Checked by independent local review audits. Our patient-first care model consistently receives 5-star ratings.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-stat">Same-Day</div>
+            <h3 class="pillar-title">Emergencies</h3>
+            <p class="pillar-desc">Daily slots reserved for urgent toothache care. We prioritize getting you pain-free fast when it matters most.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-stat">Anxiety-Free</div>
+            <h3 class="pillar-title">Comfort</h3>
+            <p class="pillar-desc">Safe sedation options and relaxing clinical environments tailored to help ease dental anxiety.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Out-of-Pocket Cost Calculator Section (NEW Component) -->
     <section id="calculator" class="services" style="background-color: #fff;">
       <div class="container">
@@ -1054,16 +1077,19 @@
           <div class="form-group">
             <label for="book-name" class="form-label">Full Name</label>
             <input type="text" id="book-name" name="name" required placeholder="John Doe" class="form-input">
+            <span class="form-error-msg hidden" id="err-book-name">Please enter your full name.</span>
           </div>
 
           <div class="form-group">
             <label for="book-email" class="form-label">Email Address</label>
             <input type="email" id="book-email" name="email" required placeholder="john@example.com" class="form-input">
+            <span class="form-error-msg hidden" id="err-book-email">Please enter a valid email address.</span>
           </div>
 
           <div class="form-group">
             <label for="book-phone" class="form-label">Phone Number</label>
             <input type="tel" id="book-phone" name="phone" required placeholder="(555) 123-4567" class="form-input">
+            <span class="form-error-msg hidden" id="err-book-phone">Please enter a valid phone number.</span>
           </div>
 
           <div class="form-row">
@@ -1298,6 +1324,16 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Mobile Sticky Booking Bar -->
+  <div id="mobile-sticky-bar" class="mobile-sticky-bar">
+    <a href="tel:+15551234567" class="btn btn-secondary">
+      <i class="fa-solid fa-phone" style="margin-right: 0.5rem;"></i>Call Clinic
+    </a>
+    <button onclick="window.openModal()" class="btn btn-primary">
+      <i class="fa-solid fa-calendar-check" style="margin-right: 0.5rem;"></i>Book Visit
+    </button>
   </div>
 
   <!-- Modular Scripts -->
