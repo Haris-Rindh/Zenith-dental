@@ -664,23 +664,110 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = document.getElementById('submit-btn');
 
   if (bookingForm && successMessage && submitBtn) {
+    const nameInput = document.getElementById('book-name');
+    const emailInput = document.getElementById('book-email');
+    const phoneInput = document.getElementById('book-phone');
+
+    const nameError = document.getElementById('err-book-name');
+    const emailError = document.getElementById('err-book-email');
+    const phoneError = document.getElementById('err-book-phone');
+    const submitError = document.getElementById('err-book-submit');
+
+    function showFieldValid(inputEl, errorEl) {
+      if (inputEl) inputEl.classList.remove('input-error');
+      if (errorEl) {
+        errorEl.classList.add('hidden');
+        errorEl.textContent = '';
+      }
+    }
+
+    function showFieldError(inputEl, errorEl, message) {
+      if (inputEl) inputEl.classList.add('input-error');
+      if (errorEl) {
+        errorEl.classList.remove('hidden');
+        errorEl.textContent = message;
+      }
+    }
+
+    function checkName() {
+      if (!nameInput.value.trim()) {
+        showFieldError(nameInput, nameError, 'Please enter your full name.');
+        return false;
+      }
+      showFieldValid(nameInput, nameError);
+      return true;
+    }
+
+    function checkEmail() {
+      if (!validateEmail(emailInput.value)) {
+        showFieldError(emailInput, emailError, 'Please enter a valid email address.');
+        return false;
+      }
+      showFieldValid(emailInput, emailError);
+      return true;
+    }
+
+    function checkPhone() {
+      if (!validatePhone(phoneInput.value)) {
+        showFieldError(phoneInput, phoneError, 'Please enter a valid phone number (e.g. (555) 123-4567).');
+        return false;
+      }
+      showFieldValid(phoneInput, phoneError);
+      return true;
+    }
+
+    if (nameInput) {
+      nameInput.addEventListener('input', checkName);
+      nameInput.addEventListener('blur', checkName);
+    }
+    if (emailInput) {
+      emailInput.addEventListener('input', checkEmail);
+      emailInput.addEventListener('blur', checkEmail);
+    }
+    if (phoneInput) {
+      phoneInput.addEventListener('input', checkPhone);
+      phoneInput.addEventListener('blur', checkPhone);
+    }
+
+    // Phone Auto-Formatter
+    if (phoneInput) {
+      phoneInput.addEventListener('input', (e) => {
+        const input = e.target.value.replace(/\D/g, '').substring(0, 10);
+        const size = input.length;
+        if (size === 0) {
+          e.target.value = '';
+        } else if (size < 4) {
+          e.target.value = '(' + input;
+        } else if (size < 7) {
+          e.target.value = '(' + input.substring(0, 3) + ') ' + input.substring(3);
+        } else {
+          e.target.value = '(' + input.substring(0, 3) + ') ' + input.substring(3, 6) + '-' + input.substring(6);
+        }
+        // Run validation check immediately after formatting
+        checkPhone();
+      });
+    }
+
     bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const nameInput = document.getElementById('book-name');
-      const emailInput = document.getElementById('book-email');
-      const phoneInput = document.getElementById('book-phone');
+      if (submitError) {
+        submitError.classList.add('hidden');
+        submitError.textContent = '';
+      }
 
-      if (!nameInput.value.trim()) {
-        alert('Please enter your full name');
-        return;
-      }
-      if (!validateEmail(emailInput.value)) {
-        alert('Please enter a valid email address');
-        return;
-      }
-      if (!validatePhone(phoneInput.value)) {
-        alert('Please enter a valid phone number');
+      const isNameValid = checkName();
+      const isEmailValid = checkEmail();
+      const isPhoneValid = checkPhone();
+
+      if (!isNameValid || !isEmailValid || !isPhoneValid) {
+        if (!isNameValid && nameInput) {
+          nameInput.focus();
+        } else if (!isEmailValid && emailInput) {
+          emailInput.focus();
+        } else if (!isPhoneValid && phoneInput) {
+          phoneInput.focus();
+        }
         return;
       }
 
@@ -707,14 +794,20 @@ document.addEventListener('DOMContentLoaded', () => {
             bookingForm.style.display = 'none';
             successMessage.classList.add('open');
           } else {
-            alert('Submission error: ' + (data.message || 'Please try again.'));
+            if (submitError) {
+              submitError.classList.remove('hidden');
+              submitError.textContent = 'Submission error: ' + (data.message || 'Please try again.');
+            }
           }
         })
         .catch(() => {
           submitBtn.innerHTML = originalBtnContent;
           submitBtn.disabled = false;
           submitBtn.classList.remove('btn-disabled');
-          alert('Network connection error. Please try again.');
+          if (submitError) {
+            submitError.classList.remove('hidden');
+            submitError.textContent = 'Network connection error. Please try again.';
+          }
         });
       } else {
         setTimeout(() => {
@@ -725,6 +818,18 @@ document.addEventListener('DOMContentLoaded', () => {
           bookingForm.style.display = 'none';
           successMessage.classList.add('open');
         }, 1500);
+      }
+    });
+  }
+
+  // --- Mobile Sticky Booking Bar Scroll Trigger ---
+  const mobileStickyBar = document.getElementById('mobile-sticky-bar');
+  if (mobileStickyBar) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        mobileStickyBar.classList.add('show');
+      } else {
+        mobileStickyBar.classList.remove('show');
       }
     });
   }
@@ -748,9 +853,29 @@ window.openModal = function() {
 
   if (modal) {
     modal.classList.add('open');
-    if (bookingForm) bookingForm.style.display = 'flex';
+    if (bookingForm) {
+      bookingForm.style.display = 'flex';
+      bookingForm.reset();
+
+      // Clear errors
+      const nameInput = document.getElementById('book-name');
+      const emailInput = document.getElementById('book-email');
+      const phoneInput = document.getElementById('book-phone');
+      const nameError = document.getElementById('err-book-name');
+      const emailError = document.getElementById('err-book-email');
+      const phoneError = document.getElementById('err-book-phone');
+      const submitError = document.getElementById('err-book-submit');
+
+      if (nameInput) nameInput.classList.remove('input-error');
+      if (emailInput) emailInput.classList.remove('input-error');
+      if (phoneInput) phoneInput.classList.remove('input-error');
+
+      if (nameError) { nameError.classList.add('hidden'); nameError.textContent = ''; }
+      if (emailError) { emailError.classList.add('hidden'); emailError.textContent = ''; }
+      if (phoneError) { phoneError.classList.add('hidden'); phoneError.textContent = ''; }
+      if (submitError) { submitError.classList.add('hidden'); submitError.textContent = ''; }
+    }
     if (successMessage) successMessage.classList.remove('open');
-    if (bookingForm) bookingForm.reset();
   }
 };
 
